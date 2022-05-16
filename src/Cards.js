@@ -1,5 +1,8 @@
 import React from 'react';
-import logo from './assets/logo.png'
+import logo from './assets/logo.png';
+import Botoes from './Botoes';
+import Footer from './Footer';
+
 
 const cards = [
     {
@@ -36,10 +39,6 @@ const cards = [
     },
 ];
 
-// ===================================== BOTOES =====================================
-
-
-
 cards.sort(sorteador);
 
 function sorteador() { 
@@ -48,6 +47,8 @@ function sorteador() {
 
 
 function Eachcard ({pergunta, resposta, index}) {
+
+    const [clicaresposta, setClicaresposta] = React.useState(null);
 
     const [cartao, setCartao] = React.useState(numero());
 
@@ -83,45 +84,11 @@ function Eachcard ({pergunta, resposta, index}) {
         return (
             <div className="answerRender">
                 <p>{resposta}</p>
-                <Botoes /> 
+                <Botoes setCartao={setCartao} index={index} clicaresposta={clicaresposta} setClicaresposta={setClicaresposta}/> 
             </div>
 
         );
     }
-
-    function respostaNeg() {
-        return (
-            <div className="cardScreen">
-                <div className="cardQuestion">
-                    <p>Pergunta {index + 1}</p>
-                    <ion-icon name="close-circle" style={{color: "#FF3030"}}></ion-icon>
-                </div>
-            </div>
-        );
-    }
-    
-    function respostaMed() {
-        return (
-            <div className="cardScreen">
-                <div className="cardQuestion">
-                    <p>Pergunta {index + 1}</p>
-                    <ion-icon name="help-circle" style={{color: "#FF922E"}}></ion-icon>
-                </div>
-            </div>
-        );
-    }
-    
-    function respostaPos() {
-        return (
-            <div className="cardScreen">
-                <div className="cardQuestion">
-                    <p>Pergunta {index + 1}</p>
-                    <ion-icon name="checkmark-circle" style={{color: "#2FBE34"}}></ion-icon>
-                </div>
-            </div>
-        );
-    }
-
 
 
     function turncard (escolhida) {
@@ -137,62 +104,14 @@ function Eachcard ({pergunta, resposta, index}) {
             setCartao(respostaRender());
         }
     }
-
-    function choose (clicaresposta) {
-        if (clicaresposta === 0){
-            setCartao(respostaNeg());
-        } if (clicaresposta === 1) {
-            setCartao(respostaMed());
-        } if (clicaresposta === 2) {
-            setCartao(respostaPos());
-        }
-        if ((clicaresposta === 0) || (clicaresposta === 1) || (clicaresposta === 2)) {
-            console.log("oioi")
-        }
-    }
-
-//==================== BOTOES ====================
-
-
-
-
-
-
-
-function Botoes() {
-    
-    const botoes = [
-        "Não lembrei",
-        "Quase não lembrei",
-        "Zap!",
-    ];
-
-    function BotaoRender() {
-        return (
-            <div className="buttons">
-                {botoes.map((botao, index) => <button onClick={() => choose(index)} key={index} >{botao}</button>)}
-            </div>
-        );
-    }
-
-    return (
-        <>
-            {BotaoRender()}
-        </>
-    );
-
 }
 
-}
-
-
-
-export default function Cards() {
+export default function Cards({clicaresposta}) {
 
 
     return (
         <>
-            <div className="nextScreen hideScreen">
+            <div className="nextScreen">
                 <div className="logoCards">
                     <img src={logo} alt="logo"/>
                     <h1>ZapRecall</h1>
@@ -200,12 +119,9 @@ export default function Cards() {
                 {/* <div className="cardScreen"></div> */}
                 {cards.map((card, index) => <Eachcard key={index} index={index} numeroP={card.numeroP} pergunta={card.pergunta} resposta={card.resposta} />)}
 
-                <div className="points">
-                    <p>
-                        0/4 CONCLUÍDOS
-                    </p>
-                </div>
+                <Footer clicaresposta={clicaresposta}/>
             </div>
         </>
     );
 }
+

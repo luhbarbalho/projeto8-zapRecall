@@ -6,7 +6,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* display: none;**** display none **** */
 }
 
 .logoStart {
@@ -46,10 +45,6 @@
 
 /*************************************** SEGUNDA TELA (SCREEN COM AS CARDS) ***************************************/
 
-/* .hideScreen {
-    display: none;
-} */
-
 .nextScreen {
     margin-bottom: 90px;;
 }
@@ -84,13 +79,27 @@
     align-items: center;
     margin: 15px 0;
     box-shadow: 0px 4px 5px 0px #00000026;
-    /* display: none;**** display none **** */
 }
 
 .cardQuestion p {
     padding-left: 15px;
     font-size: 16px;
     font-weight: 700;
+}
+
+.cardScreen > .scratchedgreen p{
+    text-decoration: line-through;
+    color: #2FBE34;
+}
+
+.cardScreen > .scratchedyellow p{
+    text-decoration: line-through;
+    color: #FF922E;
+}
+
+.cardScreen > .scratchedred p{
+    text-decoration: line-through;
+    color: #FF3030;
 }
 
 .cardQuestion ion-icon {
@@ -143,7 +152,6 @@
     justify-content: space-between;
     margin: 15px 0;
     box-shadow: 0px 4px 5px 0px #00000026;
-    /* display: none; **** display none **** */
 }
 
 .answerRender p {
