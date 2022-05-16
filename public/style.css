@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+.startScreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* display: none;**** display none **** */
+}
+
+.logoStart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoStart img {
+    width: 136px;
+    height: 161px;
+    margin-bottom: 13px;
+}
+
+.logoStart h1, .logoCards h1{
+    font-family: 'Righteous', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 59px;
+    font-size: 36px;
+    color: white;
+}
+
+.btnStart {
+    width: 264px;
+    height: 54px;
+    background-color: white;
+    margin-top: 30px;
+    border: 1px solid #D70900;
+    border-radius: 5px;
+    color: #D70900;
+    box-shadow: 0px 4px 4px 0px #00000026;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Recursive', sans-serif;
+}
+
+/*************************************** SEGUNDA TELA (SCREEN COM AS CARDS) ***************************************/
+
+/* .hideScreen {
+    display: none;
+} */
+
+.nextScreen {
+    margin-bottom: 90px;;
+}
+
+.cardScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 45px 0;
+}
+
+.logoCards h1 {
+    margin-left: 30px;
+}
+
+/*************************************** NUMERO PERGUNTAS ***************************************/
+.cardQuestion {
+    width: 300px;
+    height: 65px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    box-shadow: 0px 4px 5px 0px #00000026;
+    /* display: none;**** display none **** */
+}
+
+.cardQuestion p {
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.cardQuestion ion-icon {
+    padding-right: 22px;
+    font-size: 30px;
+}
+
+.cardQuestion ion-icon:hover {
+    cursor: pointer;
+}
+
+/*************************************** CARD COM PERGUNTAS ***************************************/
+
+.questionRender {
+    width: 299px;
+    height: 131px;
+    background-color: #FFFFD4;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 15px 0;
+    box-shadow: 0px 4px 5px 0px #00000026;
+    /* display: none;**** display none **** */
+}
+
+.questionRender p {
+    padding: 18px 15px;
+    font-size: 18px;
+    font-weight: 400;
+    width: 299px;
+}
+
+.questionRender ion-icon {
+    padding: 100px 10px 0 0;
+    font-size: 25px;
+}
+
+/*************************************** CARD COM RESPOSTAS ***************************************/
+
+.answerRender {
+    width: 299px;
+    min-height: 131px;
+    background-color: #FFFFD4;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 15px 0;
+    box-shadow: 0px 4px 5px 0px #00000026;
+    /* display: none; **** display none **** */
+}
+
+.answerRender p {
+    padding: 15px 0 0 15px;
+    font-size: 18px;
+    font-weight: 400;
+    width: 270px;
+}
+
+.answerRender .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 7px 0;
+}
+
+.answerRender button {
+    width: 85px;
+    height: 37px;
+    color: white;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+.answerRender button:nth-child(1) {
+    background-color: #FF3030;
+    margin-left: 6px;
+}
+
+.answerRender button:nth-child(2) {
+    background-color: #FF922E;
+}
+
+.answerRender button:nth-child(3) {
+    background-color: #2FBE34;
+    margin-right: 6px;
+}
+
+
+
+
+/******************************************** PONTUAÇÃO *******************************************/
+
+.points {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    box-shadow: 0px -4px 6px 0px #0000000D;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+}
+
+.points p {
+    font-size: 18px;
+    font-weight: 400;
+}
