@@ -1,14 +1,24 @@
 import React from 'react';
 
 
-export default function Footer({clicaresposta}) {
-    console.log(clicaresposta)
+
+export default function Footer({cont}) {
+
+    const [list, setList] = React.useState([]);
+    function addResults (simbolo){
+        let newList = [...list];
+        newList.push(simbolo)
+        setList(newList);
+    }
+
+
     return (
         <div className="points">
-        <p>
-            0/4 CONCLUÍDOS
-            {clicaresposta}
-        </p>
-    </div>
+            <p>
+                0/8 CONCLUÍDOS
+                {list}
+            </p>
+        </div>
     );
+
 }

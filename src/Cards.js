@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './assets/logo.png';
-import Botoes from './Botoes';
 import Footer from './Footer';
+import Eachcard from './Eachcard';
 
 
 const cards = [
@@ -46,68 +46,11 @@ function sorteador() {
 }
 
 
-function Eachcard ({pergunta, resposta, index}) {
+export default function Cards() {
+
+    let [cont, setCont] = React.useState(0);
 
     const [clicaresposta, setClicaresposta] = React.useState(null);
-
-    const [cartao, setCartao] = React.useState(numero());
-
-    return (
-        <div className="cardScreen">
-            {cartao}
-        </div>
-    );
-
-    function numero() {
-        return (
-            <div className="cardScreen">
-                <div onClick={() => turncard(index)} className="cardQuestion">
-                    <p>Pergunta {index + 1}</p>
-                    <ion-icon name="play-outline"></ion-icon>
-                </div>
-            </div>
-        );
-    }
-
-    function perguntaRender() {
-        return (
-            <div className="questionRender">
-                <p>{pergunta}</p>
-                <ion-icon onClick={() => turnanswer(index)} name="refresh-outline"></ion-icon>
-            </div>
-        );
-    }
-
-
-    function respostaRender(){
-
-        return (
-            <div className="answerRender">
-                <p>{resposta}</p>
-                <Botoes setCartao={setCartao} index={index} clicaresposta={clicaresposta} setClicaresposta={setClicaresposta}/> 
-            </div>
-
-        );
-    }
-
-
-    function turncard (escolhida) {
-        
-        if (escolhida === index){
-            setCartao(perguntaRender());
-        }
-    }
-
-    function turnanswer (clicasetinha) {
-
-        if (clicasetinha === index){
-            setCartao(respostaRender());
-        }
-    }
-}
-
-export default function Cards({clicaresposta}) {
-
 
     return (
         <>
@@ -117,9 +60,9 @@ export default function Cards({clicaresposta}) {
                     <h1>ZapRecall</h1>
                 </div>
                 {/* <div className="cardScreen"></div> */}
-                {cards.map((card, index) => <Eachcard key={index} index={index} numeroP={card.numeroP} pergunta={card.pergunta} resposta={card.resposta} />)}
+                {cards.map((card, index) => <Eachcard key={index} index={index} numeroP={card.numeroP} pergunta={card.pergunta} resposta={card.resposta} clicaresposta={clicaresposta} setClicaresposta={setClicaresposta} cont={cont} setCont={setCont}/>)}
 
-                <Footer clicaresposta={clicaresposta}/>
+                <Footer cont={cont} />
             </div>
         </>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function Botoes({setCartao, index, clicaresposta, setClicaresposta}) {
+export default function Botoes({setCartao, index, clicaresposta, setClicaresposta, cont, setCont}) {
 
     const botoes = [
         "Não lembrei",
@@ -41,22 +41,26 @@ export default function Botoes({setCartao, index, clicaresposta, setClicarespost
             </div>
         );
     }
-    console.log(clicaresposta);
-    function choose (clicaresposta) {
-        if (clicaresposta === 0){
+
+    function choose (valorescolhido) {
+        setCont(cont+1);
+
+        console.log(cont);
+
+        if (valorescolhido === 0){
             setCartao(respostaNeg());
             setClicaresposta(0);
-        } if (clicaresposta === 1) {
+
+        } if (valorescolhido === 1) {
             setCartao(respostaMed());
             setClicaresposta(1);
-        } if (clicaresposta === 2) {
+
+        } if (valorescolhido === 2) {
             setCartao(respostaPos());
             setClicaresposta(2);
+
         }
-        console.log(clicaresposta)
-        // if ((clicaresposta === 0) || (clicaresposta === 1) || (clicaresposta === 2)) {
-        //     console.log("oioi")
-        // }
+        console.log(cont);
     }
 
 
